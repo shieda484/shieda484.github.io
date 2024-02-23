@@ -20,15 +20,61 @@ if ('serviceWorker' in navigator) {
 </script>
 </head>
 <body>
-	<h1>Selected Date</h1>
-
     <div id="selectedDate"></div>
-
     <script>
         var urlParams = new URLSearchParams(window.location.search);
         var selectedDate = urlParams.get('date');
-        document.getElementById('selectedDate').innerHTML = "Selected date is: " + selectedDate;
+        document.getElementById('selectedDate').innerHTML = selectedDate;
     </script>
+
+    <div class="memo_date">
+        <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            var selectedDate = urlParams.get('date');
+            document.getElementById('selectedDate').innerHTML = selectedDate;
+        </script>
+    </div>
+
+    <div class="Form">
+
+
+
+
+        <div class="Form-Item">
+          <p class="Form-Item-Label"><span class="Form-Item-Label-notRequired"></span>日付</p>
+          <!--<input type="text" class="Form-Item-Input" placeholder="例）株式会社令和">-->
+            <script>
+                var urlParams = new URLSearchParams(window.location.search);
+                var selectedDate = urlParams.get('date');
+                document.getElementById('selectedDate').innerHTML = selectedDate;
+            </script>
+        </div> 
+
+        <!--
+        <div class="Form-Item">
+          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span></p>
+          <input type="text" class="Form-Item-Input" placeholder="例）山田太郎">
+        </div>
+        -->
+        
+        <!--日記入力フォーム-->
+        <div class="Form-Item">
+            <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-Required">必須</span>diary</p>
+            <textarea class="Form-Item-Textarea"></textarea>
+        </div>
+        
+        <!--画像アップロード-->
+        <div class="Form-Item">
+            <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-notRequired"></span>画像アップロード</p>
+            <form method="POST" action="upimage.php" enctype="multipart/form-data">
+                <input type="file" name="imgfile">
+            </form>
+        </div>
+
+        <input type="submit" class="Form-Btn" value="送信する">
+    </div>
+      
+      </div>
       
     <div class="tab-bar">
         <a href="home.html">Home</a>
