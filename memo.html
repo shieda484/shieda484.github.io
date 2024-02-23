@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Waldy</title>
+	<link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+<script>
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+	navigator.serviceWorker.register('sw.js').then(registration => {
+	console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	}, err => {
+	console.log('ServiceWorker registration failed: ', err);
+	}).catch(err => {
+	console.log(err)
+	});
+	});
+}
+</script>
+</head>
+<body>
+	<div class="calendar" id="calendar">
+        <div class="calendar-header" id="header">
+          <button onclick="prevMonth()">&lt;</button>
+          <div id="monthYear"></div>
+          <button onclick="nextMonth()">&gt;</button>
+        </div>
+        <div class="calendar-days" id="days">
+          <div class="day-header">Sun</div>
+          <div class="day-header">Mon</div>
+          <div class="day-header">Tue</div>
+          <div class="day-header">Wed</div>
+          <div class="day-header">Thu</div>
+          <div class="day-header">Fri</div>
+          <div class="day-header">Sat</div>
+        </div>
+      </div>
+      
+      <script>
+        var currentDate = new Date();
+        var currentMonth = currentDate.getMonth();
+        var currentYear = currentDate.getFullYear();
+        var currentDay = currentDate.getDate();
+        var selectedDate;
+      
+        function renderCalendar(month, year) {
+          var firstDay = new Date(year, month, 1).getDay();
+          var daysInMonth = new Date(year, month + 1, 0).getDate();
+          
+          var monthNames = ["January", "February", "March", "April", "May", "June",
+                            "July", "August", "September", "October", "November", "December"];
+      
+          document.getElementById("monthYear").innerHTML = monthNames[month] + " " + year;
+      
+          var daysHTML = "";
+          for (var i = 0; i < firstDay; i++) {
+            daysHTML += "<div class='calendar-day'></div>";
+          }
+          for (var i = 1; i <= daysInMonth; i++) {
+            daysHTML += "<div class='calendar-day' onclick='selectDate(" + i + ")'>" + i + "</div>";
+          }
+          document.getElementById("days").innerHTML += daysHTML;
+        }
+      
+        function selectDate(day) {
+          selectedDate = new Date(currentYear, currentMonth, day);
+          var formattedDate = selectedDate.getFullYear() + "-" + (selectedDate.getMonth() + 1) + "-" + selectedDate.getDate();
+          window.location.href = "memo_set.html?date=" + formattedDate;
+        }
+      
+        function prevMonth() {
+          currentMonth--;
+          if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+          }
+          renderCalendar(currentMonth, currentYear);
+        }
+      
+        function nextMonth() {
+          currentMonth++;
+          if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+          }
+          renderCalendar(currentMonth, currentYear);
+        }
+      
+        renderCalendar(currentMonth, currentYear);
+      </script>
+
+    <div class="tab-bar">
+        <a href="home.html">Home</a>
+        <a href="#memo">Memo</a>
+        <a href="setting.html">Setting</a>
+    </div>
+      
+</body>
+</html>

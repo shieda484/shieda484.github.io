@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Waldy</title>
+	<link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+<script>
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+	navigator.serviceWorker.register('sw.js').then(registration => {
+	console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	}, err => {
+	console.log('ServiceWorker registration failed: ', err);
+	}).catch(err => {
+	console.log(err)
+	});
+	});
+}
+</script>
+</head>
+<body>
+	<h1>Selected Date</h1>
+
+    <div id="selectedDate"></div>
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var selectedDate = urlParams.get('date');
+        document.getElementById('selectedDate').innerHTML = "Selected date is: " + selectedDate;
+    </script>
+      
+    <div class="tab-bar">
+        <a href="home.html">Home</a>
+        <a href="memo.html">Memo</a>
+        <a href="setting.html">Setting</a>
+    </div>
+      
+</body>
+</html>

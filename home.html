@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Waldy</title>
+	<link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+<script>
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+	navigator.serviceWorker.register('sw.js').then(registration => {
+	console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	}, err => {
+	console.log('ServiceWorker registration failed: ', err);
+	}).catch(err => {
+	console.log(err)
+	});
+	});
+}
+</script>
+</head>
+<body>
+	<div class="content">
+        <h1>Content Goes Here</h1>
+        <p>This is where your main content will be placed.</p>
+      </div>
+      
+      <div class="tab-bar">
+        <a href="#home">Home</a>
+        <a href="memo.html">Memo</a>
+        <a href="setting.html">Setting</a>
+      </div>
+      
+</body>
+</html>
