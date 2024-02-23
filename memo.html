@@ -20,20 +20,22 @@ if ('serviceWorker' in navigator) {
 </script>
 </head>
 <body>
-	<div class="calendar" id="calendar">
-        <div class="calendar-header" id="header">
-          <button onclick="prevMonth()">&lt;</button>
-          <div id="monthYear"></div>
-          <button onclick="nextMonth()">&gt;</button>
-        </div>
-        <div class="calendar-days" id="days">
-          <div class="day-header">Sun</div>
-          <div class="day-header">Mon</div>
-          <div class="day-header">Tue</div>
-          <div class="day-header">Wed</div>
-          <div class="day-header">Thu</div>
-          <div class="day-header">Fri</div>
-          <div class="day-header">Sat</div>
+	<div class="calendar-container" id="calendar-container" onscroll="scrollHandler()">
+        <div class="calendar" id="calendar">
+          <div class="calendar-header" id="header">
+            <button onclick="prevMonth()">&lt;</button>
+            <div id="monthYear"></div>
+            <button onclick="nextMonth()">&gt;</button>
+          </div>
+          <div class="calendar-days" id="days">
+            <div class="day-header">Sun</div>
+            <div class="day-header">Mon</div>
+            <div class="day-header">Tue</div>
+            <div class="day-header">Wed</div>
+            <div class="day-header">Thu</div>
+            <div class="day-header">Fri</div>
+            <div class="day-header">Sat</div>
+          </div>
         </div>
       </div>
       
@@ -43,6 +45,9 @@ if ('serviceWorker' in navigator) {
         var currentYear = currentDate.getFullYear();
         var currentDay = currentDate.getDate();
         var selectedDate;
+      
+        // 初期表示のカレンダー
+        renderCalendar(currentMonth, currentYear);
       
         function renderCalendar(month, year) {
           var firstDay = new Date(year, month, 1).getDay();
@@ -60,7 +65,7 @@ if ('serviceWorker' in navigator) {
           for (var i = 1; i <= daysInMonth; i++) {
             daysHTML += "<div class='calendar-day' onclick='selectDate(" + i + ")'>" + i + "</div>";
           }
-          document.getElementById("days").innerHTML += daysHTML;
+          document.getElementById("days").innerHTML = daysHTML;
         }
       
         function selectDate(day) {
@@ -87,7 +92,16 @@ if ('serviceWorker' in navigator) {
           renderCalendar(currentMonth, currentYear);
         }
       
-        renderCalendar(currentMonth, currentYear);
+        function scrollHandler() {
+          var container = document.getElementById("calendar-container");
+          var threshold = container.scrollHeight - container.clientHeight - 50;
+          if (container.scrollTop <= 0) {
+            prevMonth();
+          }
+          else if (container.scrollTop >= threshold) {
+            nextMonth();
+          }
+        }
       </script>
 
     <div class="tab-bar">

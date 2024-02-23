@@ -26,11 +26,15 @@ body {
   
 
 
-  .calendar {
-    width: 1oo%;
+  .calendar-container {
     height: 100%;
-    border: 1px solid #ccc;
+    overflow-y: auto;
+  }
+  .calendar {
+    width: 100%;
+    max-width: 400px;
     padding: 10px;
+    margin-bottom: 50px; /* カレンダーと次の月のカレンダーの間の余白 */
   }
   .calendar-header {
     text-align: center;
@@ -51,4 +55,7 @@ body {
   }
   .calendar-day:hover {
     background-color: #f0f0f0;
+  }
+  .day-header {
+    font-weight: bold;
   }
