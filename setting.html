@@ -4,7 +4,7 @@
 	<title>Waldy</title>
 	<link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style_food.css" type="text/css">
 <script>
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
@@ -20,10 +20,47 @@ if ('serviceWorker' in navigator) {
 </script>
 </head>
 <body>
-	<div class="content">
-        <h1>Content Goes Here</h1>
-        <p>This is where your main content will be placed.</p>
-      </div>
+    <div class="container">
+        <h1>レストラン検索</h1>
+        <form id="search-form">
+            <label for="prefecture">都道府県:</label>
+            <select id="prefecture" name="prefecture">
+                <option value="">都道府県を選択してください</option>
+                <option value="北海道">北海道</option>
+                <option value="青森県">青森県</option>
+                <option value="岩手県">岩手県</option>
+				<option value="東京都">東京都</option>
+                <!-- 他の都道府県のオプションを追加 -->
+            </select>
+            <label for="city">市区町村:</label>
+            <select id="city" name="city">
+                <option value="">都道府県を選択してください</option>
+            </select>
+            <label for="cuisine">カテゴリ:</label>
+            <select id="cuisine" name="cuisine">
+                <option value="">料理のカテゴリを選択してください</option>
+                <option value="和食">和食</option>
+                <option value="洋食">洋食</option>
+                <option value="中華料理">中華料理</option>
+                <option value="イタリアン">イタリアン</option>
+                <!-- 他のジャンルのオプションを追加 -->
+            </select>
+            <label for="price-range">価格帯:</label>
+            <select id="price-range" name="price-range">
+                <option value="">選択してください</option>
+                <option value="1">~1000円</option>
+                <option value="2">1001円~3000円</option>
+                <option value="3">3001円~5000円</option>
+                <option value="4">5001円~</option>
+            </select>
+            <button type="submit">検索</button>
+        </form>
+        <div id="restaurant-list">
+            <!-- 検索結果がここに表示されます -->
+        </div>
+    </div>
+
+    <script src="script_food.js"></script>
       
       <div class="tab-bar">
         <a href="home.html">Home</a>

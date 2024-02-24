@@ -20,51 +20,57 @@ if ('serviceWorker' in navigator) {
 </script>
 </head>
 <body>
-    <div class="Form">
-        <!--日付フォーム-->
-        <div class="Form-Item">
-            <p class="Form-Item-Label"><span class="Form-Item-Label-notRequired"></span>date</p>
-            <div id="selectedDate"></div>
-            <script>
-                var urlParams = new URLSearchParams(window.location.search);
-                var selectedDate = urlParams.get('date');
-                document.getElementById('selectedDate').innerHTML = selectedDate;
-            </script>
-        </div>
+    <form id="myForm">
+        <div class="Form">
+            <h1>--日記--</h1>
+            <!--日付フォーム-->
+            <div class="Form-Item">
+                <p class="Form-Item-Label"><span class="Form-Item-Label-circle"></span>date</p>
+                <div id="date" name="date"></div>
+                <script>
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var date = urlParams.get('date');
+                    document.getElementById('date').innerHTML = date;
+                </script>
+            </div>
         
-        <!--日記入力フォーム-->
-        <div class="Form-Item">
-            <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-notRequired"></span>diary</p>
-            <textarea class="Form-Item-Textarea" id="diary-input" name="diary"></textarea>
-        </div>
+            <!--日記入力フォーム-->
+            <div class="Form-Item">
+                <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-circle"></span>diary</p>
+                <textarea class="Form-Item-Textarea" id="diary" name="diary"></textarea>
+            </div>
         
-        <!--画像アップロード-->
-        <div class="Form-Item">
-            <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-notRequired"></span>画像アップロード</p>
-            <form method="POST" action="upimage.php" enctype="multipart/form-data">
-                <input type="file" name="imgfile">
-            </form>
-        </div>
-
-        <form id="memo-form" action="memo_confirm.html" method="get">
+            <!--画像アップロード
+            <div class="Form-Item">
+                <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-circle"></span>画像アップロード</p>
+                <form method="POST" action="upimage.php" enctype="multipart/form-data" id="image">
+                    <input type="file" name="imgfile">
+                </form>
+            </div>
+            -->
             <button type="submit" class="Form-Btn">ok</button>
-        </form>
-    </div>
+        </div>
+    </form>
 
     <script>
-        function memo_confirm() {    
-            //selectedDate = new Date(currentYear, currentMonth, day);
-            //var formattedDate = selectedDate.getFullYear() + "-" + (selectedDate.getMonth() + 1) + "-" + selectedDate.getDate();
-            //window.location.href = "memo_confirm.html?date=" + formattedDate + ",memo=" + formattedmemo;
-            memo = new Date(currentYear, currentMonth, day);
-            var formattedDate = selectedDate.getFullYear() + "-" + (selectedDate.getMonth() + 1) + "-" + selectedDate.getDate();
-            window.location.href = "memo_confirm.html?date=" + selectedDate + ",memo=" + memo;
-        }
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // フォームの通常の送信をキャンセル
+
+            // フォームの入力値を取得
+            var urlParams = new URLSearchParams(window.location.search);
+            var date = urlParams.get('date');
+            var date = document.getElementById('date').value;
+            var diary = document.getElementById('diary').value;
+
+            // URLに情報を含めて確認画面に遷移
+            window.location.href = 'memo_confirm.html?date=' + encodeURIComponent(date) + '&diary=' + encodeURIComponent(diary);
+        });
+
     </script>
       
     <div class="tab-bar">
         <a href="home.html">Home</a>
-        <a href="#memo"><span class="current_tap">Memo</span></a>
+        <a href="memo.html"><span class="current_tap">Memo</span></a>
         <a href="setting.html">Setting</a>
     </div>
       

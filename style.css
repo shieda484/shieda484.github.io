@@ -58,6 +58,11 @@ body{
   }
 
 /*メモ入力画面*/
+.memo_p{
+  text-align: center;
+  font-size: 15px;
+  color:black;
+}
   .Form {
     margin-top: 80px;
     margin-left: auto;
@@ -120,29 +125,16 @@ body{
       margin-top: 0;
     }
   }
-  .Form-Item-Label-Required {
-    border-radius: 6px;
+  .Form-Item-Label-circle {
+    border-radius: 3px;
     margin-right: 8px;
     padding-top: 8px;
     padding-bottom: 8px;
-    width: 48px;
+    width: 25px;
     display: inline-block;
     text-align: center;
     background: #5bc8ac;
     color: #fff;
-    font-size: 14px;
-  }
-  .Form-Item-Label-notRequired {
-    border-radius: 6px;
-    margin-right: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    width: 48px;
-    display: inline-block;
-    text-align: center;
-    background: white;
-    color: #fff;
-    font-size: 14px;
   }
   @media screen and (max-width: 480px) {
     .Form-Item-Label-Required {
@@ -201,15 +193,15 @@ body{
     margin-top: 32px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 280px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
     display: block;
     letter-spacing: 0.05em;
     background: #5bc8ac;
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
   }
   @media screen and (max-width: 480px) {
     .Form-Btn {
@@ -219,4 +211,40 @@ body{
       width: 160px;
       font-size: 16px;
     }
+  }
+
+  /*メモ確認画面*/
+  .Form-Btn_confirm_ok {
+    border-radius: 6px;
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+    display: block;
+    letter-spacing: 0.05em;
+    background: #5bc8ac;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+	  float: right;
+  }
+  .Form-Btn_confirm_not {
+    border-radius: 6px;
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+    display: block;
+    letter-spacing: 0.05em;
+    background: #5bc8ac;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+	  float: left;
   }

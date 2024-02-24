@@ -1,0 +1,72 @@
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .current_tap {
+    color: #5bc8ac;
+}
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  .tab-bar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+  }
+  .tab-bar a:hover {
+    background-color: #555;
+  }
+
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+label {
+  /*
+    display: block;
+    margin-bottom: 5px;*/
+    max-width: inherit;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+    display: block;
+    letter-spacing: 0.05em;
+    background: #5bc8ac;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#restaurant-list {
+    margin-top: 20px;
+}
