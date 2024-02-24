@@ -1,8 +1,11 @@
-body {
+body{
+    height: 100%;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
   }
+.current_tap {
+    color: #5bc8ac;
+}
   .tab-bar {
     position: fixed;
     bottom: 0;
@@ -25,15 +28,10 @@ body {
 
   
 /*カレンダー表示画面*/
-  .calendar-container {
-    height: 100%;
-    overflow-y: auto;
-  }
-  .calendar {
-    width: 100%;
-    max-width: 400px;
+.calendar {
+    width: 300px;
+    border: 1px solid #ccc;
     padding: 10px;
-    margin-bottom: 50px; /* カレンダーと次の月のカレンダーの間の余白 */
   }
   .calendar-header {
     text-align: center;
@@ -58,7 +56,6 @@ body {
   .day-header {
     font-weight: bold;
   }
-
 
 /*メモ入力画面*/
   .Form {
@@ -181,7 +178,6 @@ body {
   .Form-Item-Textarea {
     border: 1px solid #ddd;
     border-radius: 6px;
-    margin-left: 40px;
     padding-left: 1em;
     padding-right: 1em;
     height: 216px;

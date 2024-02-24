@@ -3,6 +3,7 @@
 <head>
 	<title>Waldy</title>
 	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="style_loading.css" type="text/css">
 <script>
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
@@ -18,7 +19,20 @@ if ('serviceWorker' in navigator) {
 </script>
 </head>
 <body>
-	<div style="text-align: center;"><img src="image/icon.png" /></div>
-	<meta http-equiv="refresh" content="3;url=home.html">
+	<div class="rogo">
+		<img src="images/icon.png"/>
+	</div>
+
+	<div class="wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+    </div>
+	<meta http-equiv="refresh" content="5;url=home.html">
+
+		<div class="animation-bg"></div>
 </body>
 </html>

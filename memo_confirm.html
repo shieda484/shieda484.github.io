@@ -20,14 +20,25 @@ if ('serviceWorker' in navigator) {
 </script>
 </head>
 <body>
-	<div class="content">
-        <h1>Content Goes Here</h1>
-        <p>This is where your main content will be placed.</p>
+	<div class="container">
+        <h2>メモアプリ - 表示</h2>
+        <div id="memo-content"></div>
       </div>
       
+      <script>
+      // URLパラメーターを解析してメモの内容を取得し、表示する
+      window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var memoContent = urlParams.get('diary');
+        if (memoContent) {
+          document.getElementById('memo-content').textContent = memoContent;
+        }
+      };
+      </script>
+      
       <div class="tab-bar">
-        <a href="#home"><span class="current_tap">Home</span></a>
-        <a href="memo.html">Memo</a>
+        <a href="home.html">Home</a>
+        <a href="#memo"><span class="current_tap">Memo</span></a>
         <a href="setting.html">Setting</a>
       </div>
       
