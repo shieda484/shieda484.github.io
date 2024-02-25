@@ -4,7 +4,7 @@
 	<title>Waldy</title>
 	<link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style_memoset.css" type="text/css">
 <script>
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
@@ -20,37 +20,29 @@ if ('serviceWorker' in navigator) {
 </script>
 </head>
 <body>
-    <form id="myForm">
-        <div class="Form">
-            <h1>--日記--</h1>
-            <!--日付フォーム-->
+    <div class="container">
+        <h1>日記</h1>
+        <form id="myForm">
             <div class="Form-Item">
-                <p class="Form-Item-Label"><span class="Form-Item-Label-circle"></span>date</p>
+                <label for="date">date:</label>
+                <!--<input type="text" id="date" name="date">-->
                 <div id="date" name="date"></div>
-                <script>
-                    var urlParams = new URLSearchParams(window.location.search);
-                    var date = urlParams.get('date');
-                    document.getElementById('date').innerHTML = date;
-                </script>
             </div>
-        
-            <!--日記入力フォーム-->
             <div class="Form-Item">
-                <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-circle"></span>diary</p>
+                <label for="diary">diary:</label>
                 <textarea class="Form-Item-Textarea" id="diary" name="diary"></textarea>
             </div>
-        
-            <!--画像アップロード
-            <div class="Form-Item">
-                <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-circle"></span>画像アップロード</p>
-                <form method="POST" action="upimage.php" enctype="multipart/form-data" id="image">
-                    <input type="file" name="imgfile">
-                </form>
-            </div>
-            -->
             <button type="submit" class="Form-Btn">ok</button>
-        </div>
-    </form>
+        </form>
+    </div>
+
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var date = urlParams.get('date');
+        document.getElementById('date').innerHTML = date;
+    </script>
+
 
     <script>
         document.getElementById('myForm').addEventListener('submit', function(event) {
@@ -59,13 +51,12 @@ if ('serviceWorker' in navigator) {
             // フォームの入力値を取得
             var urlParams = new URLSearchParams(window.location.search);
             var date = urlParams.get('date');
-            var date = document.getElementById('date').value;
+            document.getElementById('date').innerHTML = date;
             var diary = document.getElementById('diary').value;
 
             // URLに情報を含めて確認画面に遷移
             window.location.href = 'memo_confirm.html?date=' + encodeURIComponent(date) + '&diary=' + encodeURIComponent(diary);
         });
-
     </script>
       
     <div class="tab-bar">

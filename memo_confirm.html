@@ -4,7 +4,7 @@
 	<title>Waldy</title>
 	<link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style_memoset.css" type="text/css">
 <script>
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
@@ -20,20 +20,22 @@ if ('serviceWorker' in navigator) {
 </script>
 </head>
 <body>
-  <form id="myForm"></form>
-    <div class="Form">
-        <div class="memo_p"><p>--diary--</p></div>
-        <!--日付フォーム-->
-        <div class="Form-Item">
-            <p class="Form-Item-Label"><span class="Form-Item-Label-circle"></span>date</p>
-            <span id="date"></span>
-        </div>
-        
-        <!--日記入力フォーム-->
-        <div class="Form-Item">
-            <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-circle"></span>diary</p>
-            <div class="Form-Item-Textarea"><span id="diary"></span></div>
-        </div>
+    <div class="container">
+        <h1>日記</h1>
+        <form id="myForm">
+            <div class="Form-Item">
+                <label for="date">date:</label>
+                <!--<input type="text" id="date" name="date">-->
+                <span id="date"></span>
+            </div>
+            <div class="Form-Item">
+                <label for="diary">diary:</label>
+                <div class="Form-Item-Textarea"><span id="diary"></span></div>
+            </div>
+        </form>
+        <button id="memo_back" class="Form-Btn_confirm_not">戻る</button>
+        <button id ="memo_regist" type="submit" class="Form-Btn_confirm_ok">登録</button>
+    </div>
         
         <!--画像アップロード
         <div class="Form-Item">
@@ -43,11 +45,6 @@ if ('serviceWorker' in navigator) {
             </form>
         </div>
 -->
-
-        <button id="memo_back" class="Form-Btn_confirm_not">戻る</button>
-        <button id ="memo_regist" type="submit" class="Form-Btn_confirm_ok">登録</button>
-    </div>
-    </form>
 
     <script>
       // URLパラメーターから情報を取得
@@ -65,13 +62,11 @@ if ('serviceWorker' in navigator) {
 
         // ボタンがクリックされたときの処理
         back_button.addEventListener("click", function() {
-            // 別のHTMLファイルへの遷移（ここでは"another_page.html"とします）
             window.location.href = "memo_set.html";
         });
 
         // ボタンがクリックされたときの処理
         regist_button.addEventListener("click", function() {
-            // 別のHTMLファイルへの遷移（ここでは"another_page.html"とします）
             window.location.href = "memo_complete.html";
         });
 

@@ -36,17 +36,25 @@ body{
 label {
   /*
     display: block;
-    margin-bottom: 5px;*/
+    margin-bottom: 5px;
+    
     max-width: inherit;
     display: flex;
     align-items: center;
+    font-size: 15px;*/
+    
+
+    width: 100%;
+    max-width: 248px;
+    letter-spacing: 0.05em;
+    font-weight: bold;
     font-size: 15px;
 }
 
 input[type="text"],
 select {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
 }
 
@@ -69,4 +77,11 @@ button {
 
 #restaurant-list {
     margin-top: 20px;
+}
+.Form-Item {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  align-items: center;
 }
