@@ -61,8 +61,13 @@ if ('serviceWorker' in navigator) {
         var regist_button = document.getElementById("memo_regist");
 
         // ボタンがクリックされたときの処理
+        //back_button.addEventListener("click", function() {
+        //    window.location.href = "memo_set.html";
+        //});
+
+        // ボタンがクリックされたときの処理
         back_button.addEventListener("click", function() {
-            window.location.href = "memo_set.html";
+        window.location.href = "memo_set.html?date=" + encodeURIComponent(date) + "&diary=" + encodeURIComponent(diary);
         });
 
         // ボタンがクリックされたときの処理

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script>
+    var request = new XMLHttpRequest();
+ 
+    request.open('GET', 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=3af585467b7ea8ea&large_area=Z011', true);
+    request.responseType = 'json';
+ 
+    request.onload = function () {
+      var data = this.response;
+      console.log(data);
+    };
+ 
+    request.send();
+  </script>
+  </head>
+  <body>
+  </body>
+</html>
