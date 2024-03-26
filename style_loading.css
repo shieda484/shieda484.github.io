@@ -7,8 +7,8 @@ body{
 }
 .rogo{
     position: relative; /* 今の位置を基準 */
-    top: -150px;
-    transform: scale(0.3,0.3);
+    top: -100px;
+    transform: scale(0.4,0.4);
     text-align: center;
 }
 .wrapper{
