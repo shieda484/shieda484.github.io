@@ -6,10 +6,10 @@ body{
     background:white;
 }
 .rogo{
-    position: absolute;
-    top: 38%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    position: relative; /* 今の位置を基準 */
+    top: -250px;
+    transform: scale(0.3,0.3);
+    text-align: center;
 }
 .wrapper{
     width:200px;
